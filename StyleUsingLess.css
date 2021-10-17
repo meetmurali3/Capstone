@@ -1,0 +1,96 @@
+#logotext {
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+}
+#logotext #logo {
+  width: 10%;
+  height: 10%;
+  image-rendering: auto;
+  font-weight: bold;
+}
+.banner {
+  font-weight: bold;
+  background-color: #6666ff;
+}
+.banner:hover {
+  color: orange;
+}
+.banner:active {
+  background-color: green;
+}
+#screenLinks {
+  font-weight: bold;
+}
+#screenLinks a:hover {
+  color: orange;
+}
+#screenLinks a:active {
+  background-color: green;
+}
+.screenLabel {
+  font-weight: bold;
+  margin-left: 5%;
+}
+.tableContainer {
+  margin-left: 5%;
+}
+.tableContainer .tableHeader {
+  background-color: #cc9633;
+  color: white;
+  font-weight: bold;
+}
+.tableContainer .tableRow {
+  background-color: #c9b99c;
+  color: white;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.searchlabel {
+  margin-left: 5%;
+  width: 15%;
+  font-weight: normal;
+}
+.searchFields {
+  margin-left: 5%;
+  padding: 2px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.searchbutton {
+  margin-left: 10%;
+  font-weight: bold;
+  background-color: lightblue;
+  padding: 2px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.sidebar {
+  width: 10%;
+  position: unset;
+  padding-left: 0%;
+  padding-top: 0%;
+}
+.sidebar div a {
+  padding: 10%;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: right;
+  color: white;
+  display: inline-table;
+  background-color: #388fac;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  width: 100%;
+}
+.approveButton {
+  background-color: lightblue;
+  border-color: white;
+  color: black;
+}

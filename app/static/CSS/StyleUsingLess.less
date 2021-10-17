@@ -1,0 +1,112 @@
+@logoWidth:10%;
+@logoheight:10%;
+@defaultFontWeight:bold;
+@bannerColor:blue;
+@bannerLightenPercent:20%;    
+@hoverColor:orange;
+@hyperLinkActivebgColor:green;
+@labelColor:black;
+@tableHeaderBGColor:orange;
+@tableHeaderColor:white;
+@tableHeaderSaturation:40%;
+@tableRowColor:orange;
+@tableRowSaturation:70%;
+
+.my-hyperlink-mixin() {
+    &:hover {
+        color:@hoverColor;
+    }
+    &:active {
+        background-color:@hyperLinkActivebgColor;
+    }
+  }
+#logotext	{
+    font-weight:@defaultFontWeight;
+    font-size: 18px;
+    color: white;
+    #logo { 
+        width:@logoWidth; 
+        height:@logoheight;
+        image-rendering: auto;
+        font-weight: @defaultFontWeight;
+    }
+}
+.banner	{
+    font-weight:@defaultFontWeight;
+    background-color: lighten(@bannerColor, @bannerLightenPercent);
+    .my-hyperlink-mixin();
+}
+
+#screenLinks {
+    font-weight: @defaultFontWeight;
+    a {
+        .my-hyperlink-mixin();
+    }
+}	  
+.screenLabel {
+    font-weight: @defaultFontWeight;
+    margin-left: 5%
+}
+.tableContainer{
+    margin-left: 5%;
+    .tableHeader {
+        background-color:desaturate(@tableHeaderBGColor, @tableHeaderSaturation);
+        color:@tableHeaderColor;
+        font-weight: @defaultFontWeight;
+    }
+    .tableRow {
+        background-color:lighten(desaturate(@tableRowColor, @tableRowSaturation), @bannerLightenPercent);
+        color:white;
+    }	
+}
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+.searchlabel {
+    margin-left: 5%;
+    width:15%;
+    font-weight: normal;
+}
+.searchFields {
+    margin-left: 5%;
+    padding: 2px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; 
+}
+.searchbutton {
+    margin-left: 10%;
+    font-weight: @defaultFontWeight;
+    background-color: lightblue;
+    padding: 2px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; 
+}
+
+.sidebar {
+    width: 10%;
+    position: unset;
+    padding-left:0%;
+    padding-top: 0%;
+}
+.sidebar div a {
+    padding: 10%;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: right;
+    color: white;
+    display: inline-table;
+    background-color: rgb(56, 143, 172);
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box; 
+    width: 100%;
+}
+.approveButton {
+    background-color: lightblue;
+    border-color: white;
+    color: black;
+}

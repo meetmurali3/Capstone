@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Coverages</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="StyleUsingLess.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+</head>
+
+
+<body>
+        <div class="navbar navbar-inverse navbar-static-top banner" role="navigation">
+            <div class="navbar-header ">
+                <a id="logotext" href="HomePage.html">
+                    <img role="img" aria-label="Insurance Simplified Policy system" src="AppLogo.jpg" id="logo"></img>Insurance Simplified
+                </a>
+            </div>
+    </div> 
+      <div class="col-sm-10 col-md-6 col-lg-8">
+        <div class="row">
+            <ul  aria-label="Navigation" id="screenLinks">
+                <div class="col-sm-2 col-md-2 col-lg-2"><li><a aria-label="This takes to home page" href="HomePage.html">Home</a></li></div>
+                <div class="col-sm-2 col-md-2 col-lg-2"><li ><a aria-label="This takes to new policy screen" href="NewPolicy.html">New Policy</a></li></div>
+                <div class="col-sm-2 col-md-2 col-lg-2"><li ><a aria-label="Search for existing policies" href="Search.html">Search</a></li></div>
+                <div class="col-sm-2 col-md-2 col-lg-2"><li ><a aria-label="This takes to UW approval screen" href="UWApproval.html">UW Approval</a></li></div>
+                <div class="col-sm-2 col-md-2 col-lg-2"><li ><a aria-label="This takes to Administration screen for Admin to perform admin activities" href="#Admin">Admin</a></li></div>
+                <div class="col-sm-2 col-md-2 col-lg-2"><li ><a aria-label="You can email to support team" href="mailto:mgarapati1@live.maryville.edu">Support</a></li></div>
+            </ul>
+        </div>
+        <br>
+    </div>
+    <br><br><br>
+    <div class="sidebar col-sm-10 col-md-10 col-lg-8">
+        <div><a aria-label="Insured Info" href="NewPolicy.html">Insured Info</a> </div>
+        <div><a aria-label="Vehicle" href="Vehicle.html">Vehicle</a> </div>
+        <div><a aria-label="Coverages" href="Coverage.html">Coverages</a> </div>
+        <div><a aria-label="Quote" href="Quote.html">Quote</a> </div>
+    </div>
+
+      
+    <div class="col-sm-10 col-md-10 col-lg-8">
+        <h5 class ="screenLabel">Coverages</h5>   
+        <form id="vehicleinfo" style='padding-left: 15%;'>
+        <input type="checkbox" id="bodilyInjury" name="bodilyInjury" checked>
+        <label for="bodilyInjury" style="font-weight: normal"> Bodily Injury Coverage</label><br><br>
+        <input type="checkbox" id="medPay" name="medPay" checked>
+        <label for="medPay" style="font-weight: normal"> Medical Payments </label><br><br>
+        <input type="checkbox" id="propdmg" name="propdmg" checked>
+        <label for="propdmg" style="font-weight: normal"> Property Damage </label><br><br>
+        <input type="checkbox" id="pip" name="pip">
+        <label for="pip" style="font-weight: normal"> Personal Injury Protection </label><br><br>
+        <input type="checkbox" id="collision" name="collision">
+        <label for="collision" style="font-weight: normal"> Collision</label><br><br>
+        <input type="checkbox" id="comp" name="comp">
+        <label for="comp" style="font-weight: normal"> Comprehensive</label><br><br>
+    </form>
+    
+   </div>
+</body>
+<script>
+</script>
+</html>

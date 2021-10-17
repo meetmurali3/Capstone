@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Search</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="StyleUsingLess.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+</head>
+
+
+<body>
+        <div class="navbar navbar-inverse navbar-static-top banner" role="navigation">
+            <div class="navbar-header ">
+                <a id="logotext" href="HomePage.html">
+                    <img role="img" aria-label="Insurance Simplified Policy system" src="AppLogo.jpg" id="logo"></img>Insurance Simplified
+                </a>
+            </div>
+    </div> 
+    <div class="col-sm-10 col-md-6 col-lg-8">
+        <div class="row">
+            <ul  aria-label="Navigation" id="screenLinks">
+                <div class="col-sm-2 col-md-2 col-lg-2"><li><a aria-label="This takes to home page" href="HomePage.html">Home</a></li></div>
+                <div class="col-sm-2 col-md-2 col-lg-2"><li ><a aria-label="This takes to new policy screen" href="NewPolicy.html">New Policy</a></li></div>
+                <div class="col-sm-2 col-md-2 col-lg-2"><li ><a aria-label="Search for existing policies" href="Search.html">Search</a></li></div>
+                <div class="col-sm-2 col-md-2 col-lg-2"><li ><a aria-label="This takes to UW approval screen" href="UWApproval.html">UW Approval</a></li></div>
+                <div class="col-sm-2 col-md-2 col-lg-2"><li ><a aria-label="This takes to Administration screen for Admin to perform admin activities" href="#Admin">Admin</a></li></div>
+                <div class="col-sm-2 col-md-2 col-lg-2"><li ><a aria-label="You can email to support team" href="mailto:mgarapati1@live.maryville.edu">Support</a></li></div>
+            </ul>
+        </div>
+        <br>
+        <h5 class ="screenLabel">Search Policies</h5>   
+    </div>
+    <div class="col-sm-10 col-md-10 col-lg-8">
+      <form id="searchForm" >
+      <label class="searchlabel">Insured Name</label>
+      <input class="searchFields" type="text" id="insuredName" name="insuredName"><br><br>
+      <label class="searchlabel" for="uw1">Underwriter</label>
+      <input class="searchFields" type="text" id="uw1" name="underwriter"><br><br>
+    </form>
+    <button class="searchbutton" form="searchForm" type="submit" onclick="searchPolicies(); return false;">Search</button>
+    <button class="searchbutton" form="searchForm">Reset</button>
+  </div>
+    <div class="col-sm-10 col-md-6 col-lg-8">
+        <br><br>
+        <h5 class ="screenLabel">Search Results</h5> 
+    </div>
+    <div class="tableContainer" role="table" aria-label="These are waiting for UW approval">
+        <div class="col-sm-10 col-md-8 col-lg-8">
+            <div class="row tableHeader">
+                    <div class="col-sm-3 col-md-3 col-lg-3">Policy#</div>
+                    <div class="col-sm-3 col-md-3 col-lg-3">Insured Name</div>
+                    <div class="col-sm-3 col-md-3 col-lg-3">Premium</div>
+                    <div class="col-sm-3 col-md-3 col-lg-3">Underwriter</div>
+            </div>
+            <div id="searchPols" ></div>
+        </div>
+    </div>      
+</body>
+<script>
+    var totalPolicies = [{'policynum' : 'CAR67895', 'insured':'Murali Garapati', 
+                                'premium':'$7,895', 'underwriter':'Sarah Jones', 'rowClassToUse':'row tableRow'},
+                              {'policynum' : 'CAR45343', 'insured':'Ethan Garapati', 
+                                'premium':'$8,567', 'underwriter':'Sarah Jones', 'rowClassToUse':'row tableRow'},
+                              {'policynum' :'CAR76590', 'insured':'Kim Bales', 
+                                'premium':'$8,326', 'underwriter':'Sarah Jones', 'rowClassToUse':'row tableRow'},
+                              {'policynum' :'CAR86432', 'insured':'Mandy Gopal', 
+                                'premium':'$5,000', 'underwriter':'Sarah Jones', 'rowClassToUse':'row tableRow'},
+                              {'policynum' : 'CAR11234', 'insured':'Jenie Dumpster', 
+                                'premium':'$7,895', 'underwriter':'Sarah Jones', 'rowClassToUse':'row tableRow'},
+                              {'policynum' : 'CAR22345', 'insured':'Carin Winters', 
+                                'premium':'$9,008', 'underwriter':'Sarah Jones', 'rowClassToUse':'row tableRow'},
+                              {'policynum' :'CAR33218', 'insured':'Andrei Summer', 
+                                'premium':'$8,321', 'underwriter':'Sarah Jones', 'rowClassToUse':'row tableRow'},
+                              {'policynum' :'CAR99345', 'insured':'Pooja Rana', 
+                                'premium':'$7,000', 'underwriter':'Sarah Jones', 'rowClassToUse':'row tableRow'},
+                              {'policynum' : 'CAR11111', 'insured':'Angel Arna', 
+                                'premium':'$7,876', 'underwriter':'Jim Allison', 'rowClassToUse':'row tableRow'},
+                              {'policynum' : 'CAR22222', 'insured':'Carrie Gonzalez', 
+                                'premium':'$3,567', 'underwriter':'Sarah Jones', 'rowClassToUse':'row tableRow'},
+                              {'policynum' :'CAR33333', 'insured':'Becky White', 
+                                'premium':'$9,326', 'underwriter':'Jason Kok', 'rowClassToUse':'row tableRow'},
+                              {'policynum' :'CAR44444', 'insured':'Robert Pope', 
+                                'premium':'$3,000', 'underwriter':'Jason Kok', 'rowClassToUse':'row tableRow'},
+                              {'policynum' : 'CAR55555', 'insured':'Thomas Houle', 
+                                'premium':'$7,689', 'underwriter':'Bryan Williams', 'rowClassToUse':'row tableRow'},
+                              {'policynum' : 'CAR68698', 'insured':'Einstein Saunders', 
+                                'premium':'$9,987', 'underwriter':'Sarah Jones', 'rowClassToUse':'row tableRow'},
+                              {'policynum' :'CAR77777', 'insured':'Dmitriy Zoschuk', 
+                                'premium':'$8,568', 'underwriter':'Megan Fox', 'rowClassToUse':'row tableRow'},
+                              {'policynum' :'CAR98765', 'insured':'Mandira Bedi', 
+                                'premium':'$7,897', 'underwriter':'Megan Fox', 'rowClassToUse':'row tableRow'}];
+        var template = '<div class="{{rowClassToUse}}">'
+                    + '<div class="col-sm-3 col-md-3 col-lg-3">{{policynum}}</div>'
+                    + '<div class="col-sm-3 col-md-3 col-lg-3">{{insured}}</div>'
+                    + '<div class="col-sm-3 col-md-3 col-lg-3">{{premium}}</div>'
+                    + '<div class="col-sm-3 col-md-3 col-lg-3">{{underwriter}}</div>'
+                    + '</div>';
+        var searchResults = totalPolicies;
+        function reset() {
+          document.getElementById('uw1').value = '';
+          document.getElementById("insuredName").value ='';
+        }
+        function searchPolicies() {
+          document.getElementById('searchPols').innerHTML = ''
+          var uw = document.getElementById('uw1').value; 
+          var insurednm = document.getElementById("insuredName").value;
+          searchResults = totalPolicies.filter(function(pol) {
+                                                        if (insurednm != '' &&  uw != '') {
+                                                          return (pol.insured.startsWith(insurednm)
+                                                                  && pol.underwriter.startsWith(uw));  
+                                                        } else if (insurednm != '' &&  uw == '') {
+                                                          return pol.insured.startsWith(insurednm);
+                                                        } else if (insurednm == '' &&  uw != '') {
+                                                          return pol.underwriter.startsWith(uw);
+                                                        }
+                                                  });
+          $.each(searchResults, function(index, item) {
+            var output = Mustache.render(template, item);
+            document.getElementById('searchPols').innerHTML += output;
+          });
+
+     }
+
+
+</script>
+</html>
